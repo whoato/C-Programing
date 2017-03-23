@@ -2,8 +2,12 @@
 
 int main()
 {
-	// \n = 줄바꿈
-	printf("Hello, World!\n");   //   ;  컴파일러에게 종료되는 지점을 알려줌.
+	printf("char: %d\n", sizeof(char));
+	printf("short: %d\n", sizeof(short));
+	printf("int: %d\n", sizeof(int));
+	printf("long: %d\n", sizeof(long));
+	printf("float: %d\n", sizeof(float));
+	printf("double: %d\n", sizeof(double));
 
 	return 0;
 }
