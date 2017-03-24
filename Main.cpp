@@ -1,80 +1,91 @@
-#include <stdio.h> // <stdio.h> 포함.
-
-// 글로벌 변수 선언부
-
-	/*
-		함수 전방 선언부
-		정의한 함수가 선언되지 않으면 빌드되지 않는다.
-		다만 선언과 동시에 정의하면 가능.
-	*/
-
-int Add(int x1, int x2);  // 두 개의 매개변수(파라메터) == 두 개의 값이 필요.
-
-
-
-//메인
+#include <stdio.h>
 
 int main()
 {
-	// printf("Hello, World !!\n");
-	// printf("제 나이는 %d살 입니다.\n", 23);
+	/* int iNum;						// 값을 저장 받을 int형
+	float fNum;						// 값을 저장 받을 float형
 
-	// %d = 정수형을 출력할 때 사용.
-	// printf("%d학년 %d반 %d번 입니다.\n", 1, 2, 3);
-	
-	// sizeof() = 데이터 공간의 크기를 바이트 단위로 반환. & 정수형.
-	/*
-		printf("%d\n", sizeof(int));		//4
-		printf("%d\n", sizeof(float));		//4
-		printf("%d\n", sizeof(char));		//1
+	printf("iNum 값 입력 : ");
+	scanf_s("%d", &iNum);				// scanf(); 에 값을 입력하고 '&' 로 저장 될 위치를 정해준다.
 
-		printf("char: %d\n", sizeof(char));
-		printf("short: %d\n", sizeof(short));
-		printf("int: %d\n", sizeof(int));
-		printf("long: %d\n", sizeof(long));
-		printf("float: %d\n", sizeof(float));
-		printf("double: %d\n", sizeof(double));
-	*/
+	printf("fNum 값 입력 : ");			//만약 & ampersand가 없으면 & 전 코드까지 빌드된다. 버그위치 파악가능.
+	scanf_s("%f", &fNum);
 
-	/*
-		int iSum; : (int형)변수 선언
-		iSum = 10; : 변수 초기화.
-		int iSum = 10; : (int형)변수 선언과 동시에 초기화.
+	printf("iNum : %d\n", iNum);
+	printf("fNum : %f\n", fNum);
 
-		변수: 변하는 값!
-		상수 : 변하지 않는 값.
-	*/
+	return 0; */
 
-	//헝가리안 표기법 참조
+	int iNum = 10;					// 헝가리안 표기법.
+	int iNum2 = 100;
 
-	int iSum = Add(10, 100);
+	float fPI = 3.141592f;		//float형은 가급적 값 뒤에 f붙일 것. 가독성을 위함.
+	float fRadian = 57.29577f;
 
-	printf("%d\n", iSum);
+	printf("%d\n", iNum);
+	printf("%d\n", iNum2);
+	printf("\n");
 
-	iSum = Add(5, 500);
+	printf("%f\n", (float)iNum);
+	printf("%f\n", (float)iNum2);
+	printf("\n");
 
-	printf("%d\n", iSum);
-	//printf("%d\n", sizeof(iSum));
+	printf("%f\n", fPI);
+	printf("%f\n", fRadian);
+	printf("\n");
+
+	printf("%d\n", (int)fPI);			// >> 3				int 강제 형(태)변환
+	printf("%d\n", (int)fRadian);		// >> 57			소수점 이하 자리수 소실.
+	printf("\n");
 
 
-	// char = 정수형 & 문자
-	// %c = 문자
-	printf("%c\t%c\t%c\n", 65, 97, 48);
+	int iNum3 = 65;
 
-	return 0; // return을 만나는 순간이 프로그램의 목표. return을 만나면 프로그램 종료.
+
+	printf("%c\n", 'A');				// >> A				문자
+	printf("%c\n", 65);					// >> A				10진수
+	printf("%c\n", iNum3);				// >> A				변수
+	printf("%c\n", 0x41);				// >> A				16진수
+	printf("\n");
+
+	printf("%x\n", 65);					// >> 0x41
+	printf("\n");
+
+
+	int iNum4;
+
+	printf("정수 입력 : ");				// \n을 쓰면 아래로 입력
+	scanf("%d", &iNum4);				// \n X 
+	printf("%d\n", iNum4);
+	printf("\n");
+
+	char str1;						// char = 1바이트 & 문자
+										// 1바이트 데이터 표현 범위 -128 ~ 127
+										// 0 ~ 127 아스키 코드 사용. 0 ~ 127 중 1가지 정보만 담을 수 있음.
+
+	printf("문자 입력 : ");
+	scanf("%c\n", &str1);
+	printf("%d\n", str1);
+	printf("%c\n", str1);
+	printf("\n");
+
+
+	// 오늘 숙제
+
+	// 숫자를 입력하여 문자를 출력하는 프로그램을 작성하시오.
+
+	// 출력 해야될 문자는 [ H, e, l, l, o, (공백), W, o, r, l, d, !, ! ]
+
+	// 숫자를 입력했다는 것을 사진으로 찍어서 보내시오.
+
+
+	char str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13;
+
+	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c",
+		str1, str2, str3, str4, str5, str6, str7,
+		str8, str9, str10, str11, str12, str13);
+
+
+
+	return 0;
 }
-//함수 정의부
-
-
-// 함수 기본
-// [int] =  출력의 형태		[Add] = 함수의 이름.
-
-int Add(int x1, int x2)				// 입력의 형태 : x
-{									// 함수의 몸체 시작
-	
-	int y = x1 + x2;
-	
-
-	return y;
-	//return y;
-}									// 함수의 몸체 끝
